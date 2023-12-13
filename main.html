@@ -10,31 +10,26 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			if (arr.length <= 1) return -Infinity;
-
-  // Initialize variables for tracking first and second highest elements
-  let firstHighest = -Infinity;
-  let secondHighest = -Infinity;
-
-  // Loop through the array
-  for (let i = 0; i < arr.length; i++) {
-    // Check if current element is greater than first highest
-    if (arr[i] > firstHighest) {
-      // Update second highest and first highest
-      secondHighest = firstHighest;
-      firstHighest = arr[i];
-    } else if (arr[i] > secondHighest && arr[i] !== firstHighest) {
-      // Update second highest if not equal to first highest
-      secondHighest = arr[i];
-    }
-  }
-
-  // Check if all elements are the same
-  if (firstHighest === secondHighest) return -Infinity;
-
-  // Return second highest element
-  return secondHighest;
+			if(arr.length<= 1){
+				return -Infinity;
+			}
+			let max1 = -Infinity;
+			let max2 = -Infinity;
+			for(let i = 0; i< arr.length;i++){
+				if(max1 < arr[i]){
+					max2=max1;
+					max1=arr[i];
+				}
+				else if(arr[i]!== max1 && max2<arr[i]){
+					max2=arr[i];
+				}
+			}
+			if(max1 === max2){
+				return -Infinity;
+			}
+				return max2;
 		}
+
 		function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];
